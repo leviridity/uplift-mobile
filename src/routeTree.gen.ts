@@ -9,38 +9,351 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as SubsidiesRouteImport } from './routes/subsidies'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as OtpRouteImport } from './routes/otp'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as GasRouteImport } from './routes/gas'
+import { Route as ConcernsRouteImport } from './routes/concerns'
+import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as SubsidiesIdRouteImport } from './routes/subsidies.$id'
+import { Route as AdminSupportRouteImport } from './routes/admin.support'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminProfileRouteImport } from './routes/admin.profile'
+import { Route as AdminApplicationsRouteImport } from './routes/admin.applications'
+import { Route as AdminApplicationsIdRouteImport } from './routes/admin.applications.$id'
 
+const UpdatesRoute = UpdatesRouteImport.update({
+  id: '/updates',
+  path: '/updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubsidiesRoute = SubsidiesRouteImport.update({
+  id: '/subsidies',
+  path: '/subsidies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OtpRoute = OtpRouteImport.update({
+  id: '/otp',
+  path: '/otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GasRoute = GasRouteImport.update({
+  id: '/gas',
+  path: '/gas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConcernsRoute = ConcernsRouteImport.update({
+  id: '/concerns',
+  path: '/concerns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubsidiesIdRoute = SubsidiesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => SubsidiesRoute,
+} as any)
+const AdminSupportRoute = AdminSupportRouteImport.update({
+  id: '/admin/support',
+  path: '/admin/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/admin/reports',
+  path: '/admin/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminProfileRoute = AdminProfileRouteImport.update({
+  id: '/admin/profile',
+  path: '/admin/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminApplicationsRoute = AdminApplicationsRouteImport.update({
+  id: '/admin/applications',
+  path: '/admin/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminApplicationsIdRoute = AdminApplicationsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminApplicationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/concerns': typeof ConcernsRoute
+  '/gas': typeof GasRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/otp': typeof OtpRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/updates': typeof UpdatesRoute
+  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/subsidies/$id': typeof SubsidiesIdRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/concerns': typeof ConcernsRoute
+  '/gas': typeof GasRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/otp': typeof OtpRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/updates': typeof UpdatesRoute
+  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/subsidies/$id': typeof SubsidiesIdRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/concerns': typeof ConcernsRoute
+  '/gas': typeof GasRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/otp': typeof OtpRoute
+  '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
+  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/updates': typeof UpdatesRoute
+  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/subsidies/$id': typeof SubsidiesIdRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/apply'
+    | '/concerns'
+    | '/gas'
+    | '/help'
+    | '/home'
+    | '/login'
+    | '/otp'
+    | '/profile'
+    | '/signup'
+    | '/subsidies'
+    | '/updates'
+    | '/admin/applications'
+    | '/admin/profile'
+    | '/admin/reports'
+    | '/admin/support'
+    | '/subsidies/$id'
+    | '/admin/'
+    | '/admin/applications/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/apply'
+    | '/concerns'
+    | '/gas'
+    | '/help'
+    | '/home'
+    | '/login'
+    | '/otp'
+    | '/profile'
+    | '/signup'
+    | '/subsidies'
+    | '/updates'
+    | '/admin/applications'
+    | '/admin/profile'
+    | '/admin/reports'
+    | '/admin/support'
+    | '/subsidies/$id'
+    | '/admin'
+    | '/admin/applications/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/apply'
+    | '/concerns'
+    | '/gas'
+    | '/help'
+    | '/home'
+    | '/login'
+    | '/otp'
+    | '/profile'
+    | '/signup'
+    | '/subsidies'
+    | '/updates'
+    | '/admin/applications'
+    | '/admin/profile'
+    | '/admin/reports'
+    | '/admin/support'
+    | '/subsidies/$id'
+    | '/admin/'
+    | '/admin/applications/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplyRoute: typeof ApplyRoute
+  ConcernsRoute: typeof ConcernsRoute
+  GasRoute: typeof GasRoute
+  HelpRoute: typeof HelpRoute
+  HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
+  OtpRoute: typeof OtpRoute
+  ProfileRoute: typeof ProfileRoute
+  SignupRoute: typeof SignupRoute
+  SubsidiesRoute: typeof SubsidiesRouteWithChildren
+  UpdatesRoute: typeof UpdatesRoute
+  AdminApplicationsRoute: typeof AdminApplicationsRouteWithChildren
+  AdminProfileRoute: typeof AdminProfileRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSupportRoute: typeof AdminSupportRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/updates': {
+      id: '/updates'
+      path: '/updates'
+      fullPath: '/updates'
+      preLoaderRoute: typeof UpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subsidies': {
+      id: '/subsidies'
+      path: '/subsidies'
+      fullPath: '/subsidies'
+      preLoaderRoute: typeof SubsidiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/otp': {
+      id: '/otp'
+      path: '/otp'
+      fullPath: '/otp'
+      preLoaderRoute: typeof OtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gas': {
+      id: '/gas'
+      path: '/gas'
+      fullPath: '/gas'
+      preLoaderRoute: typeof GasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/concerns': {
+      id: '/concerns'
+      path: '/concerns'
+      fullPath: '/concerns'
+      preLoaderRoute: typeof ConcernsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +361,100 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subsidies/$id': {
+      id: '/subsidies/$id'
+      path: '/$id'
+      fullPath: '/subsidies/$id'
+      preLoaderRoute: typeof SubsidiesIdRouteImport
+      parentRoute: typeof SubsidiesRoute
+    }
+    '/admin/support': {
+      id: '/admin/support'
+      path: '/admin/support'
+      fullPath: '/admin/support'
+      preLoaderRoute: typeof AdminSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/admin/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/profile': {
+      id: '/admin/profile'
+      path: '/admin/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AdminProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/applications': {
+      id: '/admin/applications'
+      path: '/admin/applications'
+      fullPath: '/admin/applications'
+      preLoaderRoute: typeof AdminApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/applications/$id': {
+      id: '/admin/applications/$id'
+      path: '/$id'
+      fullPath: '/admin/applications/$id'
+      preLoaderRoute: typeof AdminApplicationsIdRouteImport
+      parentRoute: typeof AdminApplicationsRoute
+    }
   }
 }
 
+interface SubsidiesRouteChildren {
+  SubsidiesIdRoute: typeof SubsidiesIdRoute
+}
+
+const SubsidiesRouteChildren: SubsidiesRouteChildren = {
+  SubsidiesIdRoute: SubsidiesIdRoute,
+}
+
+const SubsidiesRouteWithChildren = SubsidiesRoute._addFileChildren(
+  SubsidiesRouteChildren,
+)
+
+interface AdminApplicationsRouteChildren {
+  AdminApplicationsIdRoute: typeof AdminApplicationsIdRoute
+}
+
+const AdminApplicationsRouteChildren: AdminApplicationsRouteChildren = {
+  AdminApplicationsIdRoute: AdminApplicationsIdRoute,
+}
+
+const AdminApplicationsRouteWithChildren =
+  AdminApplicationsRoute._addFileChildren(AdminApplicationsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplyRoute: ApplyRoute,
+  ConcernsRoute: ConcernsRoute,
+  GasRoute: GasRoute,
+  HelpRoute: HelpRoute,
+  HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
+  OtpRoute: OtpRoute,
+  ProfileRoute: ProfileRoute,
+  SignupRoute: SignupRoute,
+  SubsidiesRoute: SubsidiesRouteWithChildren,
+  UpdatesRoute: UpdatesRoute,
+  AdminApplicationsRoute: AdminApplicationsRouteWithChildren,
+  AdminProfileRoute: AdminProfileRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSupportRoute: AdminSupportRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
