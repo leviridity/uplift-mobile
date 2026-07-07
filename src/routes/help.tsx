@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, MessageSquare, Send, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, Mail } from "lucide-react";
 import { MobileShell } from "@/components/mobile/MobileShell";
 import { TopBar } from "@/components/mobile/TopBar";
 import { cn } from "@/lib/utils";
@@ -10,70 +10,62 @@ export const Route = createFileRoute("/help")({
 });
 
 const faqs = [
-  { q: "How do I apply for a subsidy?", a: "Go to Apply, choose a program, and follow the on-screen steps. Approval typically takes 24–48 hours." },
-  { q: "How will I receive my funds?", a: "Approved subsidies are credited to your linked eGov PH wallet within 3 business days." },
-  { q: "Can I file a grievance?", a: "Yes — head to My concerns to file a grievance. Our team responds within 24 hours." },
-  { q: "How do I update my documents?", a: "Open Profile → Edit my information, then re-upload the required documents." },
+  { q: "How do I apply for a subsidy?", a: "Go to the 'Apply' section, choose a program that fits your vehicle, and follow the on-screen steps. Approval typically takes 24–48 hours depending on volume." },
+  { q: "How will I receive my funds?", a: "Approved subsidies are credited directly to your eGov PH linked wallet. Ensure your digital wallet is active and fully verified to receive incoming transfers." },
+  { q: "Can I file a grievance?", a: "Yes. Head to the 'My concerns' section on the home page to file a formal grievance. Our dedicated support team reviews all submissions within 24 hours." },
+  { q: "How do I update my documents?", a: "Open your Profile, select 'Edit my information', and re-upload the necessary documents. Our team will re-validate your profile once changes are submitted." },
+  { q: "Are there age requirements for drivers?", a: "Yes, you must be at least 18 years old and hold a valid, non-expired Professional Driver's License." },
+  { q: "What if my application is rejected?", a: "Rejected applications will display a specific reason in the 'My Subsidies' section. You can correct the issues mentioned and re-submit your application immediately." },
+  { q: "Is my personal data secure?", a: "Absolutely. All information synced via eGov PH is encrypted and used solely for identity verification and subsidy processing. We do not sell or share your data." },
 ];
 
 function HelpPage() {
-  const [open, setOpen] = useState<number | null>(0);
-  const [msg, setMsg] = useState("");
+  const [open, setOpen] = useState<number | null>(null);
+
   return (
     <MobileShell>
-      <TopBar title="Need help?" subtitle="FAQs and UPLIFT support" />
-      <div className="space-y-5 px-5 pt-4">
-        <div className="rounded-3xl bg-gradient-hero p-5 text-white shadow-glow">
-          <HelpCircle className="h-8 w-8 text-accent" />
-          <p className="mt-2 text-lg font-extrabold">We're here to help</p>
-          <p className="text-xs text-white/80">Browse common questions or chat with a support agent.</p>
+      <TopBar title="Need help?" />
+      
+      <div className="space-y-6 px-5 pt-4 pb-24">
+        <div className="rounded-[32px] bg-[#1b2b4b] p-8 text-white shadow-xl flex flex-col items-center text-center">
+            <div className="bg-white/10 p-4 rounded-full mb-4">
+                <HelpCircle className="h-8 w-8 text-[#f5a623]" />
+            </div>
+          <p className="text-xl font-black">We're here to help</p>
+          <p className="text-xs text-white/60 mt-1 max-w-[200px]">Browse our knowledge base for quick solutions to your questions.</p>
         </div>
 
         <section>
-          <h2 className="mb-2 text-sm font-extrabold text-primary">Frequently asked</h2>
-          <div className="space-y-2">
+          <h2 className="mb-4 text-[14px] font-extrabold text-[#1b2b4b] uppercase tracking-wider px-1">Frequently asked</h2>
+          <div className="space-y-3">
             {faqs.map((f, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl bg-white shadow-card">
+              <div key={i} className="group overflow-hidden rounded-[24px] bg-white border border-[#f0f0f0] shadow-sm transition-all hover:border-[#f5a623]/30 hover:shadow-md">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between p-4 text-left transition-all hover:bg-secondary"
+                  className="flex w-full items-center justify-between p-5 text-left transition-all"
                 >
-                  <span className="text-sm font-bold text-primary">{f.q}</span>
-                  <ChevronDown className={cn("h-4 w-4 text-muted-foreground transition-transform", open === i && "rotate-180")} />
+                  <span className="text-sm font-bold text-[#1b2b4b] pr-4">{f.q}</span>
+                  <ChevronDown className={cn(
+                      "h-5 w-5 text-[#c1c1c1] transition-transform duration-300 group-hover:text-[#f5a623]", 
+                      open === i && "rotate-180"
+                  )} />
                 </button>
-                {open === i && <p className="px-4 pb-4 text-xs leading-relaxed text-muted-foreground">{f.a}</p>}
+                {open === i && (
+                    <div className="px-5 pb-5 animate-in slide-in-from-top-2 duration-300">
+                        <p className="text-xs leading-relaxed text-[#8c8b88] bg-gray-50 p-4 rounded-xl">{f.a}</p>
+                    </div>
+                )}
               </div>
             ))}
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white p-4 shadow-card">
-          <h2 className="mb-3 flex items-center gap-2 text-sm font-extrabold text-primary">
-            <MessageSquare className="h-4 w-4 text-accent" /> Chat with admin
-          </h2>
-          <div className="space-y-2 rounded-2xl bg-secondary p-3">
-            <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-white p-3 text-xs text-primary shadow">
-              Hi Juan! How can UPLIFT support help you today?
-            </div>
-            <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-gradient-accent p-3 text-xs font-semibold text-primary">
-              I need help updating my driver's license.
-            </div>
-          </div>
-          <div className="mt-3 flex items-center gap-2 rounded-2xl border border-border bg-white p-2">
-            <input
-              value={msg}
-              onChange={(e) => setMsg(e.target.value)}
-              placeholder="Type your message…"
-              className="flex-1 bg-transparent px-2 text-sm outline-none"
-            />
-            <button
-              onClick={() => setMsg("")}
-              className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-accent text-primary shadow-soft transition-all hover:-translate-y-0.5 active:scale-95"
-            >
-              <Send className="h-4 w-4" />
-            </button>
-          </div>
-        </section>
+        <div className="mt-8 rounded-[24px] bg-gray-50 p-6 text-center border border-gray-100 shadow-sm">
+            <Mail className="h-8 w-8 mx-auto text-[#1b2b4b] mb-3" />
+            <p className="font-bold text-sm text-[#1b2b4b]">Still need assistance?</p>
+            <p className="text-xs text-[#8c8b88] mt-1 mb-4">Our support team is available 24/7 via email.</p>
+            <Link to="/message-admin" className="block bg-[#1b2b4b] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#2a3f68] transition-all">Contact Admin</Link>
+        </div>
       </div>
     </MobileShell>
   );

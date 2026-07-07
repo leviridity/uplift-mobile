@@ -19,7 +19,7 @@ export function MobileShell({
       <div className="mx-auto flex min-h-screen w-full max-w-[440px] flex-col bg-background shadow-soft">
         <main
           className={cn(
-            "flex-1 overflow-y-auto pb-28",
+            "flex-1 overflow-x-hidden pb-10",
             className,
           )}
         >

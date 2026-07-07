@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Bell, Cloud, Sun, Calendar, CheckCircle2, FileText, ShieldCheck, Fuel, IdCard, HelpCircle, AlertTriangle, ChevronRight, Sparkles, Star } from "lucide-react";
-import logo from "@/assets/uplift-logo.png";
+import { useState } from "react";
+import { Bell, CheckCircle2, FileText, IdCard, HelpCircle, AlertTriangle, ChevronRight, Star, Clock, User, BusFront, Edit, MessageSquare, BookOpen, ChevronUp } from "lucide-react";
+import jeep from "@/assets/jeep.png";
 import { MobileShell } from "@/components/mobile/MobileShell";
 import { UserBottomNav } from "@/components/mobile/UserBottomNav";
-import { notifications, myApplications } from "@/data/mock";
+import { myApplications } from "@/data/mock";
 
 export const Route = createFileRoute("/home")({
   component: HomePage,
@@ -13,160 +14,165 @@ function HomePage() {
   const pending = myApplications.filter((a) => a.status === "pending").length;
   const approved = myApplications.filter((a) => a.status === "approved").length;
   const active = myApplications.length;
+
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
   return (
     <MobileShell bottomNav={<UserBottomNav />}>
-      {/* Hero */}
-      <div className="relative overflow-hidden bg-gradient-hero px-5 pb-24 pt-8 text-white">
-        <div className="absolute -right-16 -top-10 h-56 w-56 rounded-full bg-accent/25 blur-3xl" />
-        <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-accent-glow/20 blur-3xl" />
-        <div className="relative flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/95 shadow-glow">
-              <img src={logo} alt="UPLIFT" className="h-9 w-9" />
-            </div>
-            <div>
-              <p className="text-xs text-white/80">Good morning,</p>
-              <p className="text-lg font-extrabold leading-tight">Juan Santos <Sparkles className="ml-1 inline h-4 w-4 text-accent" /></p>
-              <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300 ring-1 ring-emerald-400/40">
-                <CheckCircle2 className="h-3 w-3" /> Verified Driver
-              </span>
-            </div>
-          </div>
-          <Link to="/updates" className="relative grid h-11 w-11 place-items-center rounded-full bg-white/10 backdrop-blur transition-all hover:bg-white/20 active:scale-95">
-            <Bell className="h-5 w-5" />
-            <span className="absolute -right-0.5 -top-0.5 grid h-5 w-5 place-items-center rounded-full bg-accent text-[10px] font-bold text-primary shadow">
-              {notifications.length}
-            </span>
-          </Link>
-        </div>
+      <div className="px-5 pt-6 pb-2">
+        {/* Header Card */}
+        <div className="group relative overflow-hidden bg-[#1b2b4b] p-6 rounded-[32px] shadow-xl border-[8px] border-white transition-all duration-300">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f5a623_0%,transparent_70%)] opacity-10" />
+          <img 
+            src={jeep} 
+            alt="Jeepney" 
+            className="absolute -right-20 -bottom-8 w-[320px] object-contain drop-shadow-2xl z-10 transition-transform duration-500 group-hover:scale-110"
+          />
 
-        <div className="relative mt-6 flex items-center gap-6 text-white/90">
-          <div className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-white/10">
-              <Cloud className="h-4 w-4 text-accent" />
-              <Sun className="-ml-2 -mt-2 h-3 w-3 text-accent-glow" />
+          <div className="relative z-20 flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <div className="grid h-14 w-14 place-items-center rounded-full bg-[#e6e8eb] border-2 border-[#f5a623]">
+                <User className="h-7 w-7 text-[#1b2b4b]" strokeWidth={2.5} />
+              </div>
+              <div className="flex flex-col text-white transition-colors duration-300">
+                <p className="text-[13px] font-medium opacity-80">Good morning,</p>
+                <h1 className="text-xl font-extrabold tracking-wide">Juan Santos</h1>
+                <span className="mt-1.5 inline-flex w-max items-center gap-1.5 rounded-full bg-[#10b981]/20 border border-[#10b981]/40 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#10b981]">
+                  <CheckCircle2 className="h-3 w-3" strokeWidth={3} /> Verified Driver
+                </span>
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-bold">27°C</p>
-              <p className="text-[10px] text-white/70">Partly cloudy</p>
-            </div>
-          </div>
-          <div className="h-8 w-px bg-white/20" />
-          <div className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-white/10">
-              <Calendar className="h-4 w-4 text-accent" />
-            </div>
-            <div>
-              <p className="text-sm font-bold">May 26, 2027</p>
-              <p className="text-[10px] text-white/70">Monday</p>
-            </div>
+            <Link to="/updates" className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all active:scale-95">
+              <Bell className="h-5 w-5 text-white" />
+              <span className="absolute -right-1 -top-1 grid h-[22px] w-[22px] place-items-center rounded-full border-2 border-[#1b2b4b] bg-[#f5a623] text-[11px] font-extrabold text-[#1b2b4b]">
+                2
+              </span>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Latest updates */}
-      <div className="-mt-16 space-y-5 px-5">
+      <div className="flex flex-col gap-8 px-5 pb-8 pt-2">
         <section>
-          <div className="mb-2 flex items-center justify-between">
-            <h2 className="text-base font-extrabold text-primary">Latest updates</h2>
-            <Link to="/updates" className="text-xs font-bold text-accent hover:underline">See all</Link>
+          <div className="mb-3 flex items-center justify-between px-1">
+            <h2 className="text-[16px] font-extrabold text-[#1b2b4b]">Latest updates</h2>
+            <Link to="/updates" className="text-[12px] font-bold text-[#f5a623] hover:underline">See all</Link>
           </div>
-          <div className="space-y-2">
-            {notifications.slice(0, 2).map((n) => (
-              <Link to="/updates" key={n.id} className="flex items-center gap-3 rounded-2xl bg-white p-3 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-soft">
-                <div className={`grid h-11 w-11 place-items-center rounded-xl ${n.type === "success" ? "bg-emerald-100 text-emerald-700" : n.type === "warning" ? "bg-amber-100 text-amber-700" : "bg-accent/20 text-accent-foreground"}`}>
-                  {n.type === "success" ? <CheckCircle2 className="h-5 w-5" /> : n.type === "warning" ? <AlertTriangle className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
+          <div className="flex flex-col gap-3">
+            {[
+              { title: "Subsidy application received", desc: "We're reviewing your documents", icon: FileText, color: "bg-[#f5a623]" },
+              { title: "Verification approved", desc: "Your license is now verified", icon: CheckCircle2, color: "bg-[#10b981]" }
+            ].map((update, i) => (
+              <Link to="/updates" key={i} className="flex items-center gap-3 rounded-[24px] bg-[#ffffff] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-[#f0f0f0] transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${update.color} shadow-[0_4px_10px_rgba(0,0,0,0.1)]`}>
+                  <update.icon className="h-5 w-5 text-[#ffffff]" />
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-bold text-primary">{n.title}</p>
-                  <p className="truncate text-xs text-muted-foreground">{n.body}</p>
+                <div className="min-w-0 flex-1 flex flex-col gap-0.5">
+                  <p className="truncate text-[14px] font-bold text-[#1b2b4b]">{update.title}</p>
+                  <p className="truncate text-[12px] text-[#8c8b88]">{update.desc}</p>
                 </div>
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <ChevronRight className="h-5 w-5 text-[#8c8b88] ml-1" />
               </Link>
             ))}
           </div>
         </section>
 
-        {/* Featured Apply */}
-        <Link to="/apply" className="group relative flex items-center gap-4 overflow-hidden rounded-3xl bg-gradient-accent p-4 shadow-glow transition-all hover:-translate-y-1">
-          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/20 blur-2xl" />
-          <div className="grid h-16 w-16 flex-shrink-0 place-items-center rounded-2xl bg-primary text-white shadow-soft">
-            <Fuel className="h-8 w-8 text-accent" />
+        <Link to="/apply" className="group relative flex items-center gap-4 overflow-hidden rounded-[28px] bg-gradient-to-r from-[#f5a623] to-[#ffd166] p-5 shadow-lg transition-all hover:scale-[1.02] hover:shadow-xl">
+          <div className="relative grid h-16 w-16 shrink-0 place-items-center rounded-full bg-[#1b2b4b]">
+            <BusFront className="h-8 w-8 text-[#f5a623]" strokeWidth={2} />
           </div>
-          <div className="min-w-0 flex-1">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-primary shadow">
-              <Star className="h-3 w-3 fill-accent text-accent" /> HIGH PRIORITY
+          <div className="relative min-w-0 flex-1 flex flex-col justify-center">
+            <span className="inline-flex w-max items-center gap-1 rounded-full bg-[#1b2b4b]/10 px-2 py-0.5 text-[10px] font-extrabold text-[#1b2b4b] uppercase tracking-wider">
+              <Star className="h-3 w-3 fill-[#1b2b4b]" /> Available Now
             </span>
-            <p className="mt-1 text-base font-extrabold text-primary">Apply for PUV Subsidy</p>
-            <p className="text-[11px] font-semibold text-primary/70">Round 2 · Deadline Dec 15</p>
+            <p className="mt-1 text-[18px] font-extrabold text-[#1b2b4b] leading-tight">Apply for Subsidy</p>
+            <p className="mt-0.5 text-[11px] font-bold text-[#1b2b4b]/70">Multiple programs · Check eligibility</p>
           </div>
-          <div className="grid h-9 w-9 place-items-center rounded-full bg-white text-primary shadow transition-transform group-hover:translate-x-1">
-            <ChevronRight className="h-5 w-5" />
+          <div className="relative grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#ffffff]">
+            <ChevronRight className="h-6 w-6 text-[#1b2b4b]" strokeWidth={2.5} />
           </div>
         </Link>
 
-        {/* Quick actions */}
         <section>
-          <h2 className="mb-2 text-base font-extrabold text-primary">Quick actions</h2>
-          <div className="grid grid-cols-4 gap-2">
+          <h2 className="mb-4 px-1 text-[16px] font-extrabold text-[#1b2b4b]">Quick actions</h2>
+          <div className="grid grid-cols-3 gap-4">
             {[
-              { icon: ShieldCheck, label: "Verify", desc: "Docs", to: "/profile", color: "bg-accent-soft text-accent" },
-              { icon: FileText, label: "Track", desc: "Subsidy", to: "/subsidies", color: "bg-blue-50 text-blue-700" },
-              { icon: Fuel, label: "Gas", desc: "Prices", to: "/gas", color: "bg-orange-50 text-orange-700" },
-              { icon: IdCard, label: "e-Gov", desc: "PH", to: "/profile", color: "bg-sky-50 text-sky-700" },
-            ].map(({ icon: Icon, label, desc, to, color }) => (
-              <Link key={label} to={to} className="flex flex-col items-center gap-1.5 rounded-2xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1 hover:shadow-soft active:scale-95">
-                <div className={`grid h-10 w-10 place-items-center rounded-xl ${color}`}>
-                  <Icon className="h-5 w-5" />
+              { label: "Edit Info", desc: "Manage profile", icon: Edit, to: "/profile" },
+              { label: "Track", desc: "View status", icon: FileText, to: "/subsidies" },
+              { label: "e-Gov", desc: "Sync records", icon: IdCard, to: "/profile" }
+            ].map((item) => (
+              <Link key={item.label} to={item.to} className="group flex flex-col items-center justify-center gap-2 rounded-[28px] bg-[#ffffff] p-5 text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#f0f0f0] transition-all hover:bg-[#f5a623] hover:shadow-lg hover:-translate-y-1">
+                <div className="grid h-14 w-14 place-items-center rounded-full bg-[#f5a623]/10 border border-[#f5a623]/20 transition-colors group-hover:bg-[#1b2b4b]/10">
+                  <item.icon className="h-7 w-7 text-[#f5a623] group-hover:text-[#1b2b4b]" />
                 </div>
-                <span className="text-[11px] font-bold text-primary">{label}</span>
-                <span className="text-[10px] text-muted-foreground">{desc}</span>
+                <div className="flex flex-col gap-0">
+                  <span className="text-[12px] font-extrabold text-[#1b2b4b] leading-tight">{item.label}</span>
+                  <span className="text-[9px] font-bold text-[#8c8b88] leading-tight group-hover:text-[#1b2b4b]/70">{item.desc}</span>
+                </div>
               </Link>
             ))}
           </div>
         </section>
 
-        {/* My Subsidies */}
         <section>
-          <div className="mb-2 flex items-center justify-between">
-            <h2 className="text-base font-extrabold text-primary">My Subsidies</h2>
-            <Link to="/subsidies" className="text-xs font-bold text-accent hover:underline">View all</Link>
+          <div className="mb-4 flex items-center justify-between px-1">
+            <h2 className="text-[16px] font-extrabold text-[#1b2b4b]">My Subsidies</h2>
+            <Link to="/subsidies" className="text-[12px] font-bold text-[#f5a623] hover:underline">View all</Link>
           </div>
-          <div className="grid grid-cols-3 gap-2 rounded-3xl bg-white p-4 shadow-card">
+          
+          <div className="grid grid-cols-3 gap-3">
             {[
-              { label: "Active", value: active, color: "bg-blue-50 text-blue-700", Icon: FileText },
-              { label: "Approved", value: approved, color: "bg-emerald-50 text-emerald-700", Icon: CheckCircle2 },
-              { label: "Pending", value: pending, color: "bg-amber-50 text-amber-700", Icon: AlertTriangle },
-            ].map(({ label, value, color, Icon }) => (
-              <div key={label} className="flex flex-col items-center rounded-2xl p-2 text-center">
-                <div className={`grid h-10 w-10 place-items-center rounded-full ${color}`}>
-                  <Icon className="h-5 w-5" />
-                </div>
-                <p className="mt-1 text-2xl font-extrabold text-primary">{value}</p>
-                <p className="text-[10px] font-semibold text-muted-foreground">{label}</p>
+              { label: "Active", val: active, icon: FileText, color: "text-[#3b82f6]" },
+              { label: "Approved", val: approved, icon: CheckCircle2, color: "text-[#10b981]" },
+              { label: "Pending", val: pending, icon: Clock, color: "text-[#f5a623]" }
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center justify-center gap-1.5 rounded-[24px] bg-[#ffffff] p-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#f0f0f0]">
+                <s.icon className={`h-5 w-5 ${s.color}`} />
+                <span className="text-xl font-black text-[#1b2b4b] leading-none">{s.val}</span>
+                <span className="text-[9px] font-extrabold text-[#8c8b88] uppercase tracking-wider">{s.label}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Help + Concerns */}
-        <div className="space-y-2">
-          <Link to="/help" className="flex items-center gap-3 rounded-2xl bg-white p-3.5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-soft">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent"><HelpCircle className="h-5 w-5" /></div>
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-bold text-primary">Need help?</p>
-              <p className="text-xs text-muted-foreground">Guides, FAQs, and UPLIFT support</p>
+        <div className="flex flex-col gap-4">
+            <div className="rounded-[32px] bg-white border border-[#f0f0f0] p-5 shadow-sm transition-all">
+                <button onClick={() => setExpandedSection(expandedSection === "help" ? null : "help")} className="flex w-full items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="grid h-10 w-10 place-items-center rounded-full bg-[#f5a623]/10 text-[#f5a623]"><HelpCircle size={20} /></div>
+                        <div className="text-left">
+                            <p className="font-bold text-[#1b2b4b]">Need help?</p>
+                            <p className="text-[11px] text-[#8c8b88]">Guides, FAQs, and UPLIFT support</p>
+                        </div>
+                    </div>
+                    {expandedSection === "help" ? <ChevronUp size={20} /> : <ChevronRight size={20} />}
+                </button>
+                {expandedSection === "help" && (
+                    <div className="mt-5 space-y-2 pt-4 border-t border-gray-100">
+                        <Link to="/message-admin" className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 font-bold text-[13px] text-[#1b2b4b]">Message UPLIFT admin <MessageSquare size={16} /></Link>
+                        <Link to="/help" className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 font-bold text-[13px] text-[#1b2b4b]">FAQs & Guides <BookOpen size={16} /></Link>
+                    </div>
+                )}
             </div>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-          </Link>
-          <Link to="/concerns" className="flex items-center gap-3 rounded-2xl bg-white p-3.5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-soft">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-red-50 text-red-600"><AlertTriangle className="h-5 w-5" /></div>
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-bold text-primary">My concerns</p>
-              <p className="text-xs text-muted-foreground">Grievances & profile issues</p>
+
+            <div className="rounded-[32px] bg-white border border-[#f0f0f0] p-5 shadow-sm transition-all">
+                <button onClick={() => setExpandedSection(expandedSection === "concerns" ? null : "concerns")} className="flex w-full items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="grid h-10 w-10 place-items-center rounded-full bg-red-50 text-red-500"><AlertTriangle size={20} /></div>
+                        <div className="text-left">
+                            <p className="font-bold text-[#1b2b4b]">My concerns</p>
+                            <p className="text-[11px] text-[#8c8b88]">Grievances & profile issues</p>
+                        </div>
+                    </div>
+                    {expandedSection === "concerns" ? <ChevronUp size={20} /> : <ChevronRight size={20} />}
+                </button>
+                {expandedSection === "concerns" && (
+                    <div className="mt-5 space-y-2 pt-4 border-t border-gray-100">
+                        <Link to="/grievance" className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 font-bold text-[13px] text-[#1b2b4b]">File a grievance <AlertTriangle size={16} /></Link>
+                        <Link to="/profile" className="flex items-center justify-between p-3 rounded-2xl hover:bg-gray-50 font-bold text-[13px] text-[#1b2b4b]">My profile <User size={16} /></Link>
+                    </div>
+                )}
             </div>
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-red-100 text-[11px] font-bold text-red-600">2</span>
-          </Link>
         </div>
       </div>
     </MobileShell>

@@ -1,17 +1,17 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, FileText, Fuel, Bell, User } from "lucide-react";
+import { Home, FileText, Bell, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const items = [
   { to: "/home", label: "Home", icon: Home },
   { to: "/subsidies", label: "Subsidy", icon: FileText },
-  { to: "/gas", label: "Gas", icon: Fuel },
   { to: "/updates", label: "Updates", icon: Bell },
   { to: "/profile", label: "Profile", icon: User },
 ] as const;
 
 export function UserBottomNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  
   return (
     <nav className="pointer-events-none sticky bottom-0 z-40 mx-auto w-full max-w-[440px] px-3 pb-4">
       <div className="pointer-events-auto flex items-center justify-between rounded-3xl bg-primary px-2 py-2 shadow-glow">

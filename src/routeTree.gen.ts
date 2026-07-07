@@ -9,29 +9,57 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UpdatesDetailRouteImport } from './routes/updates-detail'
 import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SubsidiesDetailRouteImport } from './routes/subsidies-detail'
 import { Route as SubsidiesRouteImport } from './routes/subsidies'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PasswordRouteImport } from './routes/password'
 import { Route as OtpRouteImport } from './routes/otp'
+import { Route as MessageAdminRouteImport } from './routes/message-admin'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LicenseRouteImport } from './routes/license'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as HelpRouteImport } from './routes/help'
-import { Route as GasRouteImport } from './routes/gas'
+import { Route as GrievanceRouteImport } from './routes/grievance'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as EgovRouteImport } from './routes/egov'
+import { Route as EditRouteImport } from './routes/edit'
 import { Route as ConcernsRouteImport } from './routes/concerns'
+import { Route as ChangeNumberRouteImport } from './routes/change-number'
+import { Route as ApplyDetailRouteImport } from './routes/apply-detail'
 import { Route as ApplyRouteImport } from './routes/apply'
+import { Route as AdminRolesRouteImport } from './routes/admin-roles'
+import { Route as AdminRejectRouteImport } from './routes/admin-reject'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as SubsidiesIdRouteImport } from './routes/subsidies.$id'
 import { Route as AdminSupportRouteImport } from './routes/admin.support'
 import { Route as AdminReportsRouteImport } from './routes/admin.reports'
 import { Route as AdminProfileRouteImport } from './routes/admin.profile'
+import { Route as AdminApplicationsDetailRouteImport } from './routes/admin.applications-detail'
 import { Route as AdminApplicationsRouteImport } from './routes/admin.applications'
-import { Route as AdminApplicationsIdRouteImport } from './routes/admin.applications.$id'
 
+const UpdatesDetailRoute = UpdatesDetailRouteImport.update({
+  id: '/updates-detail',
+  path: '/updates-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UpdatesRoute = UpdatesRouteImport.update({
   id: '/updates',
   path: '/updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubsidiesDetailRoute = SubsidiesDetailRouteImport.update({
+  id: '/subsidies-detail',
+  path: '/subsidies-detail',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SubsidiesRoute = SubsidiesRouteImport.update({
@@ -44,9 +72,19 @@ const SignupRoute = SignupRouteImport.update({
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PasswordRoute = PasswordRouteImport.update({
+  id: '/password',
+  path: '/password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OtpRoute = OtpRouteImport.update({
@@ -54,9 +92,19 @@ const OtpRoute = OtpRouteImport.update({
   path: '/otp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MessageAdminRoute = MessageAdminRouteImport.update({
+  id: '/message-admin',
+  path: '/message-admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LicenseRoute = LicenseRouteImport.update({
+  id: '/license',
+  path: '/license',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -69,9 +117,24 @@ const HelpRoute = HelpRouteImport.update({
   path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GasRoute = GasRouteImport.update({
-  id: '/gas',
-  path: '/gas',
+const GrievanceRoute = GrievanceRouteImport.update({
+  id: '/grievance',
+  path: '/grievance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EgovRoute = EgovRouteImport.update({
+  id: '/egov',
+  path: '/egov',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditRoute = EditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConcernsRoute = ConcernsRouteImport.update({
@@ -79,9 +142,29 @@ const ConcernsRoute = ConcernsRouteImport.update({
   path: '/concerns',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChangeNumberRoute = ChangeNumberRouteImport.update({
+  id: '/change-number',
+  path: '/change-number',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyDetailRoute = ApplyDetailRouteImport.update({
+  id: '/apply-detail',
+  path: '/apply-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApplyRoute = ApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/admin-roles',
+  path: '/admin-roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRejectRoute = AdminRejectRouteImport.update({
+  id: '/admin-reject',
+  path: '/admin-reject',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -93,11 +176,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const SubsidiesIdRoute = SubsidiesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => SubsidiesRoute,
 } as any)
 const AdminSupportRoute = AdminSupportRouteImport.update({
   id: '/admin/support',
@@ -114,161 +192,254 @@ const AdminProfileRoute = AdminProfileRouteImport.update({
   path: '/admin/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminApplicationsDetailRoute = AdminApplicationsDetailRouteImport.update({
+  id: '/admin/applications-detail',
+  path: '/admin/applications-detail',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminApplicationsRoute = AdminApplicationsRouteImport.update({
   id: '/admin/applications',
   path: '/admin/applications',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminApplicationsIdRoute = AdminApplicationsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => AdminApplicationsRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin-reject': typeof AdminRejectRoute
+  '/admin-roles': typeof AdminRolesRoute
   '/apply': typeof ApplyRoute
+  '/apply-detail': typeof ApplyDetailRoute
+  '/change-number': typeof ChangeNumberRoute
   '/concerns': typeof ConcernsRoute
-  '/gas': typeof GasRoute
+  '/edit': typeof EditRoute
+  '/egov': typeof EgovRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
+  '/message-admin': typeof MessageAdminRoute
   '/otp': typeof OtpRoute
+  '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/subsidies': typeof SubsidiesRoute
+  '/subsidies-detail': typeof SubsidiesDetailRoute
+  '/terms': typeof TermsRoute
   '/updates': typeof UpdatesRoute
-  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/updates-detail': typeof UpdatesDetailRoute
+  '/admin/applications': typeof AdminApplicationsRoute
+  '/admin/applications-detail': typeof AdminApplicationsDetailRoute
   '/admin/profile': typeof AdminProfileRoute
   '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
-  '/subsidies/$id': typeof SubsidiesIdRoute
   '/admin/': typeof AdminIndexRoute
-  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin-reject': typeof AdminRejectRoute
+  '/admin-roles': typeof AdminRolesRoute
   '/apply': typeof ApplyRoute
+  '/apply-detail': typeof ApplyDetailRoute
+  '/change-number': typeof ChangeNumberRoute
   '/concerns': typeof ConcernsRoute
-  '/gas': typeof GasRoute
+  '/edit': typeof EditRoute
+  '/egov': typeof EgovRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
+  '/message-admin': typeof MessageAdminRoute
   '/otp': typeof OtpRoute
+  '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/subsidies': typeof SubsidiesRoute
+  '/subsidies-detail': typeof SubsidiesDetailRoute
+  '/terms': typeof TermsRoute
   '/updates': typeof UpdatesRoute
-  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/updates-detail': typeof UpdatesDetailRoute
+  '/admin/applications': typeof AdminApplicationsRoute
+  '/admin/applications-detail': typeof AdminApplicationsDetailRoute
   '/admin/profile': typeof AdminProfileRoute
   '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
-  '/subsidies/$id': typeof SubsidiesIdRoute
   '/admin': typeof AdminIndexRoute
-  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin-reject': typeof AdminRejectRoute
+  '/admin-roles': typeof AdminRolesRoute
   '/apply': typeof ApplyRoute
+  '/apply-detail': typeof ApplyDetailRoute
+  '/change-number': typeof ChangeNumberRoute
   '/concerns': typeof ConcernsRoute
-  '/gas': typeof GasRoute
+  '/edit': typeof EditRoute
+  '/egov': typeof EgovRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
+  '/message-admin': typeof MessageAdminRoute
   '/otp': typeof OtpRoute
+  '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/subsidies': typeof SubsidiesRouteWithChildren
+  '/subsidies': typeof SubsidiesRoute
+  '/subsidies-detail': typeof SubsidiesDetailRoute
+  '/terms': typeof TermsRoute
   '/updates': typeof UpdatesRoute
-  '/admin/applications': typeof AdminApplicationsRouteWithChildren
+  '/updates-detail': typeof UpdatesDetailRoute
+  '/admin/applications': typeof AdminApplicationsRoute
+  '/admin/applications-detail': typeof AdminApplicationsDetailRoute
   '/admin/profile': typeof AdminProfileRoute
   '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
-  '/subsidies/$id': typeof SubsidiesIdRoute
   '/admin/': typeof AdminIndexRoute
-  '/admin/applications/$id': typeof AdminApplicationsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin-reject'
+    | '/admin-roles'
     | '/apply'
+    | '/apply-detail'
+    | '/change-number'
     | '/concerns'
-    | '/gas'
+    | '/edit'
+    | '/egov'
+    | '/forgot-password'
+    | '/grievance'
     | '/help'
     | '/home'
+    | '/license'
     | '/login'
+    | '/message-admin'
     | '/otp'
+    | '/password'
     | '/profile'
+    | '/settings'
     | '/signup'
     | '/subsidies'
+    | '/subsidies-detail'
+    | '/terms'
     | '/updates'
+    | '/updates-detail'
     | '/admin/applications'
+    | '/admin/applications-detail'
     | '/admin/profile'
     | '/admin/reports'
     | '/admin/support'
-    | '/subsidies/$id'
     | '/admin/'
-    | '/admin/applications/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin-reject'
+    | '/admin-roles'
     | '/apply'
+    | '/apply-detail'
+    | '/change-number'
     | '/concerns'
-    | '/gas'
+    | '/edit'
+    | '/egov'
+    | '/forgot-password'
+    | '/grievance'
     | '/help'
     | '/home'
+    | '/license'
     | '/login'
+    | '/message-admin'
     | '/otp'
+    | '/password'
     | '/profile'
+    | '/settings'
     | '/signup'
     | '/subsidies'
+    | '/subsidies-detail'
+    | '/terms'
     | '/updates'
+    | '/updates-detail'
     | '/admin/applications'
+    | '/admin/applications-detail'
     | '/admin/profile'
     | '/admin/reports'
     | '/admin/support'
-    | '/subsidies/$id'
     | '/admin'
-    | '/admin/applications/$id'
   id:
     | '__root__'
     | '/'
+    | '/admin-reject'
+    | '/admin-roles'
     | '/apply'
+    | '/apply-detail'
+    | '/change-number'
     | '/concerns'
-    | '/gas'
+    | '/edit'
+    | '/egov'
+    | '/forgot-password'
+    | '/grievance'
     | '/help'
     | '/home'
+    | '/license'
     | '/login'
+    | '/message-admin'
     | '/otp'
+    | '/password'
     | '/profile'
+    | '/settings'
     | '/signup'
     | '/subsidies'
+    | '/subsidies-detail'
+    | '/terms'
     | '/updates'
+    | '/updates-detail'
     | '/admin/applications'
+    | '/admin/applications-detail'
     | '/admin/profile'
     | '/admin/reports'
     | '/admin/support'
-    | '/subsidies/$id'
     | '/admin/'
-    | '/admin/applications/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRejectRoute: typeof AdminRejectRoute
+  AdminRolesRoute: typeof AdminRolesRoute
   ApplyRoute: typeof ApplyRoute
+  ApplyDetailRoute: typeof ApplyDetailRoute
+  ChangeNumberRoute: typeof ChangeNumberRoute
   ConcernsRoute: typeof ConcernsRoute
-  GasRoute: typeof GasRoute
+  EditRoute: typeof EditRoute
+  EgovRoute: typeof EgovRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  GrievanceRoute: typeof GrievanceRoute
   HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
+  LicenseRoute: typeof LicenseRoute
   LoginRoute: typeof LoginRoute
+  MessageAdminRoute: typeof MessageAdminRoute
   OtpRoute: typeof OtpRoute
+  PasswordRoute: typeof PasswordRoute
   ProfileRoute: typeof ProfileRoute
+  SettingsRoute: typeof SettingsRoute
   SignupRoute: typeof SignupRoute
-  SubsidiesRoute: typeof SubsidiesRouteWithChildren
+  SubsidiesRoute: typeof SubsidiesRoute
+  SubsidiesDetailRoute: typeof SubsidiesDetailRoute
+  TermsRoute: typeof TermsRoute
   UpdatesRoute: typeof UpdatesRoute
-  AdminApplicationsRoute: typeof AdminApplicationsRouteWithChildren
+  UpdatesDetailRoute: typeof UpdatesDetailRoute
+  AdminApplicationsRoute: typeof AdminApplicationsRoute
+  AdminApplicationsDetailRoute: typeof AdminApplicationsDetailRoute
   AdminProfileRoute: typeof AdminProfileRoute
   AdminReportsRoute: typeof AdminReportsRoute
   AdminSupportRoute: typeof AdminSupportRoute
@@ -277,11 +448,32 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/updates-detail': {
+      id: '/updates-detail'
+      path: '/updates-detail'
+      fullPath: '/updates-detail'
+      preLoaderRoute: typeof UpdatesDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/updates': {
       id: '/updates'
       path: '/updates'
       fullPath: '/updates'
       preLoaderRoute: typeof UpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subsidies-detail': {
+      id: '/subsidies-detail'
+      path: '/subsidies-detail'
+      fullPath: '/subsidies-detail'
+      preLoaderRoute: typeof SubsidiesDetailRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/subsidies': {
@@ -298,11 +490,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/password': {
+      id: '/password'
+      path: '/password'
+      fullPath: '/password'
+      preLoaderRoute: typeof PasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/otp': {
@@ -312,11 +518,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OtpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/message-admin': {
+      id: '/message-admin'
+      path: '/message-admin'
+      fullPath: '/message-admin'
+      preLoaderRoute: typeof MessageAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/license': {
+      id: '/license'
+      path: '/license'
+      fullPath: '/license'
+      preLoaderRoute: typeof LicenseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -333,11 +553,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gas': {
-      id: '/gas'
-      path: '/gas'
-      fullPath: '/gas'
-      preLoaderRoute: typeof GasRouteImport
+    '/grievance': {
+      id: '/grievance'
+      path: '/grievance'
+      fullPath: '/grievance'
+      preLoaderRoute: typeof GrievanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/egov': {
+      id: '/egov'
+      path: '/egov'
+      fullPath: '/egov'
+      preLoaderRoute: typeof EgovRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/edit': {
+      id: '/edit'
+      path: '/edit'
+      fullPath: '/edit'
+      preLoaderRoute: typeof EditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/concerns': {
@@ -347,11 +588,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConcernsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/change-number': {
+      id: '/change-number'
+      path: '/change-number'
+      fullPath: '/change-number'
+      preLoaderRoute: typeof ChangeNumberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply-detail': {
+      id: '/apply-detail'
+      path: '/apply-detail'
+      fullPath: '/apply-detail'
+      preLoaderRoute: typeof ApplyDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/apply': {
       id: '/apply'
       path: '/apply'
       fullPath: '/apply'
       preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-roles': {
+      id: '/admin-roles'
+      path: '/admin-roles'
+      fullPath: '/admin-roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-reject': {
+      id: '/admin-reject'
+      path: '/admin-reject'
+      fullPath: '/admin-reject'
+      preLoaderRoute: typeof AdminRejectRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -367,13 +636,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/subsidies/$id': {
-      id: '/subsidies/$id'
-      path: '/$id'
-      fullPath: '/subsidies/$id'
-      preLoaderRoute: typeof SubsidiesIdRouteImport
-      parentRoute: typeof SubsidiesRoute
     }
     '/admin/support': {
       id: '/admin/support'
@@ -396,6 +658,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/applications-detail': {
+      id: '/admin/applications-detail'
+      path: '/admin/applications-detail'
+      fullPath: '/admin/applications-detail'
+      preLoaderRoute: typeof AdminApplicationsDetailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/applications': {
       id: '/admin/applications'
       path: '/admin/applications'
@@ -403,53 +672,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminApplicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/applications/$id': {
-      id: '/admin/applications/$id'
-      path: '/$id'
-      fullPath: '/admin/applications/$id'
-      preLoaderRoute: typeof AdminApplicationsIdRouteImport
-      parentRoute: typeof AdminApplicationsRoute
-    }
   }
 }
 
-interface SubsidiesRouteChildren {
-  SubsidiesIdRoute: typeof SubsidiesIdRoute
-}
-
-const SubsidiesRouteChildren: SubsidiesRouteChildren = {
-  SubsidiesIdRoute: SubsidiesIdRoute,
-}
-
-const SubsidiesRouteWithChildren = SubsidiesRoute._addFileChildren(
-  SubsidiesRouteChildren,
-)
-
-interface AdminApplicationsRouteChildren {
-  AdminApplicationsIdRoute: typeof AdminApplicationsIdRoute
-}
-
-const AdminApplicationsRouteChildren: AdminApplicationsRouteChildren = {
-  AdminApplicationsIdRoute: AdminApplicationsIdRoute,
-}
-
-const AdminApplicationsRouteWithChildren =
-  AdminApplicationsRoute._addFileChildren(AdminApplicationsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRejectRoute: AdminRejectRoute,
+  AdminRolesRoute: AdminRolesRoute,
   ApplyRoute: ApplyRoute,
+  ApplyDetailRoute: ApplyDetailRoute,
+  ChangeNumberRoute: ChangeNumberRoute,
   ConcernsRoute: ConcernsRoute,
-  GasRoute: GasRoute,
+  EditRoute: EditRoute,
+  EgovRoute: EgovRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  GrievanceRoute: GrievanceRoute,
   HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
+  LicenseRoute: LicenseRoute,
   LoginRoute: LoginRoute,
+  MessageAdminRoute: MessageAdminRoute,
   OtpRoute: OtpRoute,
+  PasswordRoute: PasswordRoute,
   ProfileRoute: ProfileRoute,
+  SettingsRoute: SettingsRoute,
   SignupRoute: SignupRoute,
-  SubsidiesRoute: SubsidiesRouteWithChildren,
+  SubsidiesRoute: SubsidiesRoute,
+  SubsidiesDetailRoute: SubsidiesDetailRoute,
+  TermsRoute: TermsRoute,
   UpdatesRoute: UpdatesRoute,
-  AdminApplicationsRoute: AdminApplicationsRouteWithChildren,
+  UpdatesDetailRoute: UpdatesDetailRoute,
+  AdminApplicationsRoute: AdminApplicationsRoute,
+  AdminApplicationsDetailRoute: AdminApplicationsDetailRoute,
   AdminProfileRoute: AdminProfileRoute,
   AdminReportsRoute: AdminReportsRoute,
   AdminSupportRoute: AdminSupportRoute,
@@ -458,3 +712,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

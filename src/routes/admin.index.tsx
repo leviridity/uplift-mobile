@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Bell, ChevronRight, FileStack, ShieldCheck, HelpCircle, PlusCircle, CheckCircle2 } from "lucide-react";
-import logo from "@/assets/uplift-logo.png";
+import { ChevronRight, FileStack, ShieldCheck, HelpCircle, PlusCircle, CheckCircle2, User } from "lucide-react";
+import admin from "@/assets/admin.png";
 import { MobileShell } from "@/components/mobile/MobileShell";
 import { AdminBottomNav } from "@/components/mobile/AdminBottomNav";
 
@@ -11,82 +11,92 @@ export const Route = createFileRoute("/admin/")({
 function AdminHome() {
   return (
     <MobileShell bottomNav={<AdminBottomNav />}>
-      <div className="relative overflow-hidden bg-gradient-hero px-5 pb-20 pt-8 text-white">
-        <div className="absolute -right-16 -top-10 h-56 w-56 rounded-full bg-accent/25 blur-3xl" />
-        <div className="relative flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/95 shadow-glow">
-              <img src={logo} alt="UPLIFT" className="h-9 w-9" />
-            </div>
-            <div>
-              <p className="text-xs text-white/80">Good morning,</p>
-              <p className="text-lg font-extrabold leading-tight">Admin Reyes</p>
-              <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent ring-1 ring-accent/40">
-                <CheckCircle2 className="h-3 w-3" /> DOTr Administrator
-              </span>
+      <div className="relative px-5 pt-4">
+        <div className="relative overflow-hidden rounded-[32px] bg-[#1b2b4b] p-6 text-white shadow-xl transition-all duration-300 hover:bg-[#253960]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f5a623_0%,transparent_70%)] opacity-10" />
+          
+          <img 
+            src={admin} 
+            alt="Admin" 
+            className="absolute -right-3 -bottom-7 w-[160px] object-contain drop-shadow-2xl z-10 opacity-100 transition-transform duration-500 hover:scale-105"
+          />
+
+          <div className="relative z-20 flex items-start">
+            <div className="flex items-center gap-4">
+              <div className="grid h-16 w-16 place-items-center rounded-3xl bg-white shadow-xl">
+                <User className="h-8 w-8 text-[#1b2b4b]" />
+              </div>
+              <div>
+                <p className="text-[11px] text-white/70 font-medium">Good morning,</p>
+                <p className="text-[18px] font-extrabold">Admin Reyes</p>
+                <div className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400 border border-emerald-500/30">
+                  <CheckCircle2 className="h-3 w-3" /> DOTr Administrator
+                </div>
+              </div>
             </div>
           </div>
-          <button className="relative grid h-11 w-11 place-items-center rounded-full bg-white/10 backdrop-blur transition-all hover:bg-white/20">
-            <Bell className="h-5 w-5" />
-            <span className="absolute -right-0.5 -top-0.5 grid h-5 w-5 place-items-center rounded-full bg-accent text-[10px] font-bold text-primary">3</span>
-          </button>
         </div>
       </div>
 
-      <div className="-mt-14 space-y-5 px-5">
-        <div className="rounded-3xl bg-white p-4 shadow-glow">
-          <p className="text-sm font-extrabold text-primary">Today's Overview</p>
-          <div className="mt-3 grid grid-cols-3 gap-2">
+      <div className="mt-6 space-y-6 px-5 pb-8">
+        <section>
+          <div className="mb-3 flex items-center justify-between px-1">
+            <h2 className="text-[14px] font-extrabold text-[#1b2b4b]">Today's Overview</h2>
+            <Link to="/admin/applications" className="text-[11px] font-bold text-[#f5a623] hover:underline">View all</Link>
+          </div>
+          <div className="grid grid-cols-3 gap-3">
             {[
-              { label: "Pending", value: 18, color: "bg-amber-100 text-amber-700", Icon: FileStack },
-              { label: "Verified", value: 9, color: "bg-emerald-100 text-emerald-700", Icon: ShieldCheck },
-              { label: "Help Requests", value: 5, color: "bg-red-100 text-red-600", Icon: HelpCircle },
+              { label: "Pending", value: 18, color: "bg-amber-50 text-amber-600", Icon: FileStack },
+              { label: "Verified", value: 9, color: "bg-emerald-50 text-emerald-600", Icon: ShieldCheck },
+              { label: "Help", value: 5, color: "bg-red-50 text-red-600", Icon: HelpCircle },
             ].map(({ label, value, color, Icon }) => (
-              <div key={label} className="flex flex-col items-center rounded-2xl bg-secondary p-3 text-center">
-                <div className={`grid h-10 w-10 place-items-center rounded-full ${color}`}><Icon className="h-5 w-5" /></div>
-                <p className="mt-1 text-2xl font-extrabold text-primary">{value}</p>
-                <p className="text-[10px] font-semibold text-muted-foreground">{label}</p>
+              <div key={label} className="group flex flex-col items-center rounded-3xl bg-white p-4 text-center border border-gray-100 shadow-sm transition-all hover:bg-[#f5a623] hover:border-[#f5a623]">
+                <div className={`grid h-10 w-10 place-items-center rounded-full ${color} mb-2 transition-colors group-hover:bg-[#1b2b4b]/10`}>
+                    <Icon className="h-5 w-5" />
+                </div>
+                <p className="text-xl font-black text-[#1b2b4b] group-hover:text-[#1b2b4b]">{value}</p>
+                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider group-hover:text-[#1b2b4b]/70">{label}</p>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         <section>
-          <div className="mb-2 flex items-center justify-between">
-            <h2 className="text-sm font-extrabold text-primary">Quick Actions</h2>
-            <Link to="/admin/applications" className="text-xs font-bold text-accent hover:underline">View all</Link>
-          </div>
-          <div className="grid grid-cols-3 gap-2">
+          <h2 className="mb-3 px-1 text-[14px] font-extrabold text-[#1b2b4b]">Quick Actions</h2>
+          <div className="grid grid-cols-3 gap-3">
             {[
-              { Icon: PlusCircle, label: "Create Event", desc: "Add new event", to: "/admin/applications" as const, color: "bg-sky-50 text-sky-700" },
-              { Icon: ShieldCheck, label: "Verify Driver", desc: "Review docs", to: "/admin/applications" as const, color: "bg-accent-soft text-accent" },
-              { Icon: FileStack, label: "Applications", desc: "Review queue", to: "/admin/applications" as const, color: "bg-violet-50 text-violet-700" },
+              { Icon: PlusCircle, label: "Event", to: "/admin/applications" as const, color: "bg-sky-50 text-sky-600" },
+              { Icon: ShieldCheck, label: "Verify", to: "/admin/applications" as const, color: "bg-emerald-50 text-emerald-600" },
+              { Icon: FileStack, label: "Review", to: "/admin/applications" as const, color: "bg-violet-50 text-violet-600" },
             ].map((q) => (
-              <Link key={q.label} to={q.to} className="rounded-2xl bg-white p-3 text-center shadow-card transition-all hover:-translate-y-1 hover:shadow-soft active:scale-95">
-                <div className={`mx-auto grid h-10 w-10 place-items-center rounded-xl ${q.color}`}><q.Icon className="h-5 w-5" /></div>
-                <p className="mt-1 text-[11px] font-bold text-primary">{q.label}</p>
-                <p className="text-[10px] text-muted-foreground">{q.desc}</p>
+              <Link key={q.label} to={q.to} className="group flex flex-col items-center rounded-3xl bg-white p-4 text-center shadow-sm border border-gray-100 transition-all hover:bg-[#f5a623] hover:border-[#f5a623] hover:-translate-y-1">
+                <div className={`grid h-12 w-12 place-items-center rounded-2xl ${q.color} mb-3 group-hover:bg-[#1b2b4b]/10`}>
+                    <q.Icon className="h-6 w-6" />
+                </div>
+                <p className="text-[11px] font-extrabold text-[#1b2b4b] group-hover:text-[#1b2b4b]">{q.label}</p>
               </Link>
             ))}
           </div>
         </section>
 
         <section>
-          <h2 className="mb-2 text-sm font-extrabold text-primary">Recent Activity</h2>
-          <div className="space-y-2">
+          <h2 className="mb-3 text-[14px] font-extrabold text-[#1b2b4b] px-1">Recent Activity</h2>
+          <div className="space-y-3">
             {[
               { name: "Juan Santos", desc: "New application submitted", time: "2m ago" },
               { name: "Maria Cruz", desc: "Verification approved", time: "15m ago" },
               { name: "Pedro Dela Cruz", desc: "Requested revision", time: "1h ago" },
             ].map((a) => (
-              <Link key={a.name} to="/admin/applications" className="flex items-center gap-3 rounded-2xl bg-white p-3 shadow-card transition-all hover:-translate-y-0.5">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-accent text-xs font-extrabold text-primary">{a.name.split(" ").map(n => n[0]).join("")}</div>
+              <Link key={a.name} to="/admin/applications" className="flex items-center gap-4 rounded-[24px] bg-white p-4 shadow-sm border border-gray-100 transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#1b2b4b] text-sm font-black text-white">{a.name.split(" ").map(n => n[0]).join("")}</div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-bold text-primary">{a.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">{a.desc}</p>
+                  <p className="text-sm font-bold text-[#1b2b4b] truncate">{a.name}</p>
+                  <p className="text-[11px] text-[#8c8b88] truncate">{a.desc}</p>
                 </div>
-                <span className="text-[10px] text-muted-foreground">{a.time}</span>
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <div className="text-right">
+                    <p className="text-[10px] font-bold text-[#8c8b88]">{a.time}</p>
+                    <ChevronRight className="h-4 w-4 text-gray-300 ml-auto" />
+                </div>
               </Link>
             ))}
           </div>
