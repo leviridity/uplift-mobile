@@ -20,8 +20,7 @@ function HomePage() {
   return (
     <MobileShell bottomNav={<UserBottomNav />}>
       <div className="px-5 pt-6 pb-2">
-        {/* Header Card */}
-        <div className="group relative overflow-hidden bg-[#1b2b4b] p-6 rounded-[32px] shadow-xl border-[8px] border-white transition-all duration-300">
+        <div className="group relative overflow-hidden bg-[#1b2b4b] p-6 rounded-[32px] shadow-xl border-[8px] border-white transition-all duration-300 hover:bg-white hover:border-[#1b2b4b]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f5a623_0%,transparent_70%)] opacity-10" />
           <img 
             src={jeep} 
@@ -34,7 +33,7 @@ function HomePage() {
               <div className="grid h-14 w-14 place-items-center rounded-full bg-[#e6e8eb] border-2 border-[#f5a623]">
                 <User className="h-7 w-7 text-[#1b2b4b]" strokeWidth={2.5} />
               </div>
-              <div className="flex flex-col text-white transition-colors duration-300">
+              <div className="flex flex-col text-white transition-colors duration-300 group-hover:text-[#1b2b4b]">
                 <p className="text-[13px] font-medium opacity-80">Good morning,</p>
                 <h1 className="text-xl font-extrabold tracking-wide">Juan Santos</h1>
                 <span className="mt-1.5 inline-flex w-max items-center gap-1.5 rounded-full bg-[#10b981]/20 border border-[#10b981]/40 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#10b981]">
@@ -43,7 +42,7 @@ function HomePage() {
               </div>
             </div>
             <Link to="/updates" className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all active:scale-95">
-              <Bell className="h-5 w-5 text-white" />
+              <Bell className="h-5 w-5 text-white group-hover:text-[#1b2b4b]" />
               <span className="absolute -right-1 -top-1 grid h-[22px] w-[22px] place-items-center rounded-full border-2 border-[#1b2b4b] bg-[#f5a623] text-[11px] font-extrabold text-[#1b2b4b]">
                 2
               </span>
@@ -106,7 +105,7 @@ function HomePage() {
                   <item.icon className="h-7 w-7 text-[#f5a623] group-hover:text-[#1b2b4b]" />
                 </div>
                 <div className="flex flex-col gap-0">
-                  <span className="text-[12px] font-extrabold text-[#1b2b4b] leading-tight">{item.label}</span>
+                  <span className="text-[12px] font-extrabold text-[#1b2b4b] leading-tight group-hover:text-[#1b2b4b]">{item.label}</span>
                   <span className="text-[9px] font-bold text-[#8c8b88] leading-tight group-hover:text-[#1b2b4b]/70">{item.desc}</span>
                 </div>
               </Link>
@@ -115,18 +114,14 @@ function HomePage() {
         </section>
 
         <section>
-          <div className="mb-4 flex items-center justify-between px-1">
-            <h2 className="text-[16px] font-extrabold text-[#1b2b4b]">My Subsidies</h2>
-            <Link to="/subsidies" className="text-[12px] font-bold text-[#f5a623] hover:underline">View all</Link>
-          </div>
-          
+          <h2 className="mb-4 px-1 text-[16px] font-extrabold text-[#1b2b4b]">My Subsidies</h2>
           <div className="grid grid-cols-3 gap-3">
             {[
               { label: "Active", val: active, icon: FileText, color: "text-[#3b82f6]" },
               { label: "Approved", val: approved, icon: CheckCircle2, color: "text-[#10b981]" },
               { label: "Pending", val: pending, icon: Clock, color: "text-[#f5a623]" }
             ].map((s) => (
-              <div key={s.label} className="flex flex-col items-center justify-center gap-1.5 rounded-[24px] bg-[#ffffff] p-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#f0f0f0]">
+              <div key={s.label} className="flex flex-col items-center justify-center gap-1.5 rounded-[24px] bg-[#ffffff] p-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-[#f0f0f0] transition-all hover:shadow-md hover:scale-[1.02]">
                 <s.icon className={`h-5 w-5 ${s.color}`} />
                 <span className="text-xl font-black text-[#1b2b4b] leading-none">{s.val}</span>
                 <span className="text-[9px] font-extrabold text-[#8c8b88] uppercase tracking-wider">{s.label}</span>

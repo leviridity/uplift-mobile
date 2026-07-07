@@ -31,7 +31,7 @@ function ProfilePage() {
           <img 
             src={jeep} 
             alt="Jeepney" 
-            className="absolute -right-10 -bottom-5 w-[200px] object-contain drop-shadow-2xl z-10 opacity-90 transition-transform duration-500 hover:scale-105"
+            className="absolute -right-10 -bottom--20 w-[200px] object-contain drop-shadow-2xl z-10 opacity-90 transition-transform duration-500 hover:scale-105"
           />
 
           <div className="relative z-20 flex items-center gap-4">
