@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, QrCode, FileText, ChevronRight, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, QrCode, FileText, ChevronRight, Eye, EyeOff, HelpCircle } from "lucide-react";
 import { MobileShell } from "@/components/mobile/MobileShell";
 import { subsidyPrograms } from "@/data/mock";
 import { cn } from "@/lib/utils";
@@ -97,6 +97,11 @@ function SubsidyDetailPage() {
                 ))}
             </div>
         </div>
+
+        <Link to="/help" className="mt-8 flex w-full items-center justify-center gap-3 bg-[#1b2b4b] text-white p-4 rounded-2xl font-bold hover:bg-[#253960] transition-colors">
+            <HelpCircle size={20} />
+            Need help?
+        </Link>
       </div>
     </MobileShell>
   );

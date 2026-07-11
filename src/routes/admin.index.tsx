@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronRight, FileStack, ShieldCheck, HelpCircle, PlusCircle, CheckCircle2, User } from "lucide-react";
+import { ChevronRight, FileStack, ShieldCheck, HelpCircle, CheckCircle2, User, CalendarDays, MessagesSquare } from "lucide-react";
 import admin from "@/assets/admin.png";
 import { MobileShell } from "@/components/mobile/MobileShell";
 import { AdminBottomNav } from "@/components/mobile/AdminBottomNav";
@@ -63,17 +63,18 @@ function AdminHome() {
 
         <section>
           <h2 className="mb-3 px-1 text-[14px] font-extrabold text-[#1b2b4b]">Quick Actions</h2>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-4 gap-2">
             {[
-              { Icon: PlusCircle, label: "Event", to: "/admin/applications" as const, color: "bg-sky-50 text-sky-600" },
-              { Icon: ShieldCheck, label: "Verify", to: "/admin/applications" as const, color: "bg-emerald-50 text-emerald-600" },
-              { Icon: FileStack, label: "Review", to: "/admin/applications" as const, color: "bg-violet-50 text-violet-600" },
+              { Icon: CalendarDays, label: "Event", to: "/admin/events" },
+              { Icon: FileStack, label: "Applications", to: "/admin/applications" },
+              { Icon: ShieldCheck, label: "Verify", to: "/admin/verify" },
+              { Icon: MessagesSquare, label: "Support", to: "/admin/support" },
             ].map((q) => (
-              <Link key={q.label} to={q.to} className="group flex flex-col items-center rounded-3xl bg-white p-4 text-center shadow-sm border border-gray-100 transition-all hover:bg-[#f5a623] hover:border-[#f5a623] hover:-translate-y-1">
-                <div className={`grid h-12 w-12 place-items-center rounded-2xl ${q.color} mb-3 group-hover:bg-[#1b2b4b]/10`}>
-                    <q.Icon className="h-6 w-6" />
+              <Link key={q.label} to={q.to} className="group flex flex-col items-center rounded-3xl bg-white p-3 text-center shadow-sm border border-gray-100 transition-all hover:bg-[#f5a623] hover:border-[#f5a623] hover:-translate-y-1">
+                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gray-50 mb-2 group-hover:bg-[#1b2b4b]/10">
+                    <q.Icon className="h-5 w-5 text-[#1b2b4b]" />
                 </div>
-                <p className="text-[11px] font-extrabold text-[#1b2b4b] group-hover:text-[#1b2b4b]">{q.label}</p>
+                <p className="text-[10px] font-extrabold text-[#1b2b4b] leading-tight">{q.label}</p>
               </Link>
             ))}
           </div>

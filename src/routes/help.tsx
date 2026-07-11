@@ -10,6 +10,7 @@ export const Route = createFileRoute("/help")({
 });
 
 const faqs = [
+  { q: "How do I use this app?", a: "This app helps you apply for and track fuel subsidies. Use the home dashboard to view active programs, tap 'Apply' to start your application, and monitor your status under 'My Subsidies'. Ensure your eGov PH account is linked to handle verification and payments." },
   { q: "How do I apply for a subsidy?", a: "Go to the 'Apply' section, choose a program that fits your vehicle, and follow the on-screen steps. Approval typically takes 24–48 hours depending on volume." },
   { q: "How will I receive my funds?", a: "Approved subsidies are credited directly to your eGov PH linked wallet. Ensure your digital wallet is active and fully verified to receive incoming transfers." },
   { q: "Can I file a grievance?", a: "Yes. Head to the 'My concerns' section on the home page to file a formal grievance. Our dedicated support team reviews all submissions within 24 hours." },

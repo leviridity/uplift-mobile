@@ -19,6 +19,7 @@ import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PasswordRouteImport } from './routes/password'
 import { Route as OtpRouteImport } from './routes/otp'
+import { Route as MyconcernRouteImport } from './routes/myconcern'
 import { Route as MessageAdminRouteImport } from './routes/message-admin'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LicenseRouteImport } from './routes/license'
@@ -36,9 +37,10 @@ import { Route as AdminRolesRouteImport } from './routes/admin-roles'
 import { Route as AdminRejectRouteImport } from './routes/admin-reject'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminVerifyRouteImport } from './routes/admin.verify'
 import { Route as AdminSupportRouteImport } from './routes/admin.support'
-import { Route as AdminReportsRouteImport } from './routes/admin.reports'
 import { Route as AdminProfileRouteImport } from './routes/admin.profile'
+import { Route as AdminEventsRouteImport } from './routes/admin.events'
 import { Route as AdminApplicationsDetailRouteImport } from './routes/admin.applications-detail'
 import { Route as AdminApplicationsRouteImport } from './routes/admin.applications'
 
@@ -90,6 +92,11 @@ const PasswordRoute = PasswordRouteImport.update({
 const OtpRoute = OtpRouteImport.update({
   id: '/otp',
   path: '/otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyconcernRoute = MyconcernRouteImport.update({
+  id: '/myconcern',
+  path: '/myconcern',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MessageAdminRoute = MessageAdminRouteImport.update({
@@ -177,19 +184,24 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminVerifyRoute = AdminVerifyRouteImport.update({
+  id: '/admin/verify',
+  path: '/admin/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminSupportRoute = AdminSupportRouteImport.update({
   id: '/admin/support',
   path: '/admin/support',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminReportsRoute = AdminReportsRouteImport.update({
-  id: '/admin/reports',
-  path: '/admin/reports',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminProfileRoute = AdminProfileRouteImport.update({
   id: '/admin/profile',
   path: '/admin/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEventsRoute = AdminEventsRouteImport.update({
+  id: '/admin/events',
+  path: '/admin/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminApplicationsDetailRoute = AdminApplicationsDetailRouteImport.update({
@@ -220,6 +232,7 @@ export interface FileRoutesByFullPath {
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
+  '/myconcern': typeof MyconcernRoute
   '/otp': typeof OtpRoute
   '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
@@ -232,9 +245,10 @@ export interface FileRoutesByFullPath {
   '/updates-detail': typeof UpdatesDetailRoute
   '/admin/applications': typeof AdminApplicationsRoute
   '/admin/applications-detail': typeof AdminApplicationsDetailRoute
+  '/admin/events': typeof AdminEventsRoute
   '/admin/profile': typeof AdminProfileRoute
-  '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/verify': typeof AdminVerifyRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -254,6 +268,7 @@ export interface FileRoutesByTo {
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
+  '/myconcern': typeof MyconcernRoute
   '/otp': typeof OtpRoute
   '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
@@ -266,9 +281,10 @@ export interface FileRoutesByTo {
   '/updates-detail': typeof UpdatesDetailRoute
   '/admin/applications': typeof AdminApplicationsRoute
   '/admin/applications-detail': typeof AdminApplicationsDetailRoute
+  '/admin/events': typeof AdminEventsRoute
   '/admin/profile': typeof AdminProfileRoute
-  '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/verify': typeof AdminVerifyRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -289,6 +305,7 @@ export interface FileRoutesById {
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
+  '/myconcern': typeof MyconcernRoute
   '/otp': typeof OtpRoute
   '/password': typeof PasswordRoute
   '/profile': typeof ProfileRoute
@@ -301,9 +318,10 @@ export interface FileRoutesById {
   '/updates-detail': typeof UpdatesDetailRoute
   '/admin/applications': typeof AdminApplicationsRoute
   '/admin/applications-detail': typeof AdminApplicationsDetailRoute
+  '/admin/events': typeof AdminEventsRoute
   '/admin/profile': typeof AdminProfileRoute
-  '/admin/reports': typeof AdminReportsRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/verify': typeof AdminVerifyRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -325,6 +343,7 @@ export interface FileRouteTypes {
     | '/license'
     | '/login'
     | '/message-admin'
+    | '/myconcern'
     | '/otp'
     | '/password'
     | '/profile'
@@ -337,9 +356,10 @@ export interface FileRouteTypes {
     | '/updates-detail'
     | '/admin/applications'
     | '/admin/applications-detail'
+    | '/admin/events'
     | '/admin/profile'
-    | '/admin/reports'
     | '/admin/support'
+    | '/admin/verify'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -359,6 +379,7 @@ export interface FileRouteTypes {
     | '/license'
     | '/login'
     | '/message-admin'
+    | '/myconcern'
     | '/otp'
     | '/password'
     | '/profile'
@@ -371,9 +392,10 @@ export interface FileRouteTypes {
     | '/updates-detail'
     | '/admin/applications'
     | '/admin/applications-detail'
+    | '/admin/events'
     | '/admin/profile'
-    | '/admin/reports'
     | '/admin/support'
+    | '/admin/verify'
     | '/admin'
   id:
     | '__root__'
@@ -393,6 +415,7 @@ export interface FileRouteTypes {
     | '/license'
     | '/login'
     | '/message-admin'
+    | '/myconcern'
     | '/otp'
     | '/password'
     | '/profile'
@@ -405,9 +428,10 @@ export interface FileRouteTypes {
     | '/updates-detail'
     | '/admin/applications'
     | '/admin/applications-detail'
+    | '/admin/events'
     | '/admin/profile'
-    | '/admin/reports'
     | '/admin/support'
+    | '/admin/verify'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -428,6 +452,7 @@ export interface RootRouteChildren {
   LicenseRoute: typeof LicenseRoute
   LoginRoute: typeof LoginRoute
   MessageAdminRoute: typeof MessageAdminRoute
+  MyconcernRoute: typeof MyconcernRoute
   OtpRoute: typeof OtpRoute
   PasswordRoute: typeof PasswordRoute
   ProfileRoute: typeof ProfileRoute
@@ -440,9 +465,10 @@ export interface RootRouteChildren {
   UpdatesDetailRoute: typeof UpdatesDetailRoute
   AdminApplicationsRoute: typeof AdminApplicationsRoute
   AdminApplicationsDetailRoute: typeof AdminApplicationsDetailRoute
+  AdminEventsRoute: typeof AdminEventsRoute
   AdminProfileRoute: typeof AdminProfileRoute
-  AdminReportsRoute: typeof AdminReportsRoute
   AdminSupportRoute: typeof AdminSupportRoute
+  AdminVerifyRoute: typeof AdminVerifyRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -516,6 +542,13 @@ declare module '@tanstack/react-router' {
       path: '/otp'
       fullPath: '/otp'
       preLoaderRoute: typeof OtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/myconcern': {
+      id: '/myconcern'
+      path: '/myconcern'
+      fullPath: '/myconcern'
+      preLoaderRoute: typeof MyconcernRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/message-admin': {
@@ -637,6 +670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/verify': {
+      id: '/admin/verify'
+      path: '/admin/verify'
+      fullPath: '/admin/verify'
+      preLoaderRoute: typeof AdminVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/support': {
       id: '/admin/support'
       path: '/admin/support'
@@ -644,18 +684,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSupportRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/reports': {
-      id: '/admin/reports'
-      path: '/admin/reports'
-      fullPath: '/admin/reports'
-      preLoaderRoute: typeof AdminReportsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin/profile': {
       id: '/admin/profile'
       path: '/admin/profile'
       fullPath: '/admin/profile'
       preLoaderRoute: typeof AdminProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/events': {
+      id: '/admin/events'
+      path: '/admin/events'
+      fullPath: '/admin/events'
+      preLoaderRoute: typeof AdminEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/applications-detail': {
@@ -692,6 +732,7 @@ const rootRouteChildren: RootRouteChildren = {
   LicenseRoute: LicenseRoute,
   LoginRoute: LoginRoute,
   MessageAdminRoute: MessageAdminRoute,
+  MyconcernRoute: MyconcernRoute,
   OtpRoute: OtpRoute,
   PasswordRoute: PasswordRoute,
   ProfileRoute: ProfileRoute,
@@ -704,9 +745,10 @@ const rootRouteChildren: RootRouteChildren = {
   UpdatesDetailRoute: UpdatesDetailRoute,
   AdminApplicationsRoute: AdminApplicationsRoute,
   AdminApplicationsDetailRoute: AdminApplicationsDetailRoute,
+  AdminEventsRoute: AdminEventsRoute,
   AdminProfileRoute: AdminProfileRoute,
-  AdminReportsRoute: AdminReportsRoute,
   AdminSupportRoute: AdminSupportRoute,
+  AdminVerifyRoute: AdminVerifyRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
