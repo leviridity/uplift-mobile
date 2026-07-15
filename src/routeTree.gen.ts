@@ -23,6 +23,8 @@ import { Route as MyconcernRouteImport } from './routes/myconcern'
 import { Route as MessageAdminRouteImport } from './routes/message-admin'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LicenseRouteImport } from './routes/license'
+import { Route as Index3RouteImport } from './routes/index3'
+import { Route as Index2RouteImport } from './routes/index2'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as GrievanceRouteImport } from './routes/grievance'
@@ -112,6 +114,16 @@ const LoginRoute = LoginRouteImport.update({
 const LicenseRoute = LicenseRouteImport.update({
   id: '/license',
   path: '/license',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Index3Route = Index3RouteImport.update({
+  id: '/index3',
+  path: '/index3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Index2Route = Index2RouteImport.update({
+  id: '/index2',
+  path: '/index2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -229,6 +241,8 @@ export interface FileRoutesByFullPath {
   '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/index2': typeof Index2Route
+  '/index3': typeof Index3Route
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
@@ -265,6 +279,8 @@ export interface FileRoutesByTo {
   '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/index2': typeof Index2Route
+  '/index3': typeof Index3Route
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
@@ -302,6 +318,8 @@ export interface FileRoutesById {
   '/grievance': typeof GrievanceRoute
   '/help': typeof HelpRoute
   '/home': typeof HomeRoute
+  '/index2': typeof Index2Route
+  '/index3': typeof Index3Route
   '/license': typeof LicenseRoute
   '/login': typeof LoginRoute
   '/message-admin': typeof MessageAdminRoute
@@ -340,6 +358,8 @@ export interface FileRouteTypes {
     | '/grievance'
     | '/help'
     | '/home'
+    | '/index2'
+    | '/index3'
     | '/license'
     | '/login'
     | '/message-admin'
@@ -376,6 +396,8 @@ export interface FileRouteTypes {
     | '/grievance'
     | '/help'
     | '/home'
+    | '/index2'
+    | '/index3'
     | '/license'
     | '/login'
     | '/message-admin'
@@ -412,6 +434,8 @@ export interface FileRouteTypes {
     | '/grievance'
     | '/help'
     | '/home'
+    | '/index2'
+    | '/index3'
     | '/license'
     | '/login'
     | '/message-admin'
@@ -449,6 +473,8 @@ export interface RootRouteChildren {
   GrievanceRoute: typeof GrievanceRoute
   HelpRoute: typeof HelpRoute
   HomeRoute: typeof HomeRoute
+  Index2Route: typeof Index2Route
+  Index3Route: typeof Index3Route
   LicenseRoute: typeof LicenseRoute
   LoginRoute: typeof LoginRoute
   MessageAdminRoute: typeof MessageAdminRoute
@@ -570,6 +596,20 @@ declare module '@tanstack/react-router' {
       path: '/license'
       fullPath: '/license'
       preLoaderRoute: typeof LicenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/index3': {
+      id: '/index3'
+      path: '/index3'
+      fullPath: '/index3'
+      preLoaderRoute: typeof Index3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/index2': {
+      id: '/index2'
+      path: '/index2'
+      fullPath: '/index2'
+      preLoaderRoute: typeof Index2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -729,6 +769,8 @@ const rootRouteChildren: RootRouteChildren = {
   GrievanceRoute: GrievanceRoute,
   HelpRoute: HelpRoute,
   HomeRoute: HomeRoute,
+  Index2Route: Index2Route,
+  Index3Route: Index3Route,
   LicenseRoute: LicenseRoute,
   LoginRoute: LoginRoute,
   MessageAdminRoute: MessageAdminRoute,

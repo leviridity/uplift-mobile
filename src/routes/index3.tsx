@@ -3,7 +3,7 @@ import { FileText, ShieldCheck, UserCheck } from "lucide-react";
 import logo from "@/assets/uplift-logo.png";
 import { MobileShell } from "@/components/mobile/MobileShell";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/index3")({
   component: Landing,
 });
 
@@ -16,23 +16,21 @@ const features = [
 function Landing() {
   return (
     <MobileShell className="relative flex min-h-screen flex-col items-center justify-between bg-white px-6 py-10 text-[#1b2b4b] overflow-hidden">
-      {/* Dynamic Background Light Effect */}
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute -top-[20%] -left-[20%] h-[500px] w-[500px] rounded-full bg-[#f5a623] blur-[150px] animate-pulse" />
         <div className="absolute top-[40%] -right-[20%] h-[400px] w-[400px] rounded-full bg-[#1b2b4b] blur-[120px]" />
       </div>
 
       <div className="relative z-10 flex w-full flex-col items-center pt-8">
-        <h1 className="text-7xl font-extrabold tracking-tighter">
-          UP<span className="text-[#f5a623]">LIFT</span>
+        <h1 className="text-7xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-[#1b2b4b] to-[#2e4a85]">
+          PARA
         </h1>
-        <p className="mt-3 max-w-[280px] text-center text-sm font-medium leading-tight text-gray-500">
-          Fast-Track Your Benefits with Secure<br/>
-          Verification and Direct Subsidies.
+        <p className="mt-3 max-w-[320px] text-center text-sm font-semibold text-gray-500">
+          Para Dito, Para Sa Bawat Driver.
         </p>
 
         <div className="my-6 w-full flex justify-center">
-          <img src={logo} alt="UPLIFT Logo" className="h-64 w-64 object-contain drop-shadow-2xl" />
+          <img src={logo} alt="PARA Logo" className="h-64 w-64 object-contain drop-shadow-2xl" />
         </div>
 
         <div className="flex w-full justify-center gap-3">

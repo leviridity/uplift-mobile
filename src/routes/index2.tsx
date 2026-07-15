@@ -3,7 +3,7 @@ import { FileText, ShieldCheck, UserCheck } from "lucide-react";
 import logo from "@/assets/uplift-logo.png";
 import { MobileShell } from "@/components/mobile/MobileShell";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/index2")({
   component: Landing,
 });
 
@@ -16,7 +16,6 @@ const features = [
 function Landing() {
   return (
     <MobileShell className="relative flex min-h-screen flex-col items-center justify-between bg-white px-6 py-10 text-[#1b2b4b] overflow-hidden">
-      {/* Dynamic Background Light Effect */}
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute -top-[20%] -left-[20%] h-[500px] w-[500px] rounded-full bg-[#f5a623] blur-[150px] animate-pulse" />
         <div className="absolute top-[40%] -right-[20%] h-[400px] w-[400px] rounded-full bg-[#1b2b4b] blur-[120px]" />
